@@ -27,7 +27,7 @@ Throughout my time as a computer science enthusiast, I have worked on quite a fe
 - Two academic letters
 - 96th percentile, rank 13/450+ in class
 
-## Experience & Accomplishments
+## Education
 
 **Drop-in Lab Coordinator** `Apr 2025 - Current`
 
@@ -53,4 +53,4 @@ Throughout my time as a computer science enthusiast, I have worked on quite a fe
 
 <!-- ### Footer
 
-Last updated: May 2013 -->
+Last updated: June 2025 -->
