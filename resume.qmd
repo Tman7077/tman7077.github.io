@@ -1,88 +1,55 @@
 ---
 layout: cv
-title: Isaac Newtons's CV
+title: Tyler Bartle's Resume
 ---
-# Isaac Newton
-Physicist, Mathematician, Cambridge professor.
+# Tyler Bartle
+Detail-oriented Computer Science student (3.99 GPA) at Brigham Young University—Idaho with 3+ years of coding experience, 4+ years of general work  experience, and a strong foundation in problem-solving, teamwork, and efficiency. Passionate about software development, with experience in multiple programming languages and a history of contributing to collaborative projects.
 
 <div id="webaddress">
-<a href="isaac@applesdofall.org">isaac@applesdofall.org</a>
-| <a href="http://en.wikipedia.org/wiki/Isaac_Newton">My wikipedia page</a>
+<a href="tman.bartleboy1@gmail.com">tman.bartleboy1@gmail.com</a>
+| <a href="https://linktr.ee/tman7077">All my links!</a>
 </div>
 
+## Skills & Projects
 
-## Currently
+Throughout my time as a computer science enthusiast, I have worked on quite a few projects. Many of them are uploaded on [my GitHub](https://github.com/tman7077) account! Most of my work has been in object-oriented and functional contexts, and I’ve worked in many languages: Python, C# and .NET 7-9, Elixir & Erlang, HTML & CSS, JavaScript, and SQL (MySQL). I’m also currently working on [a simple murder mystery application](https://github.com/tman7077/spaceteam-murder-mystery) in C# and WPF (*soon™*).
 
-Standing on the shoulders of giants
+## Experience & Accomplishments
 
-### Specialized in
+**Brigham Young University—Idaho** *(Current)*
 
-Laws of motion, gravitation, minting coins, disliking [Robert Hooke](http://en.wikipedia.org/wiki/Robert_Hooke)
+- 3.99 GPA
+- Senior, studying Computer Science
 
+**Doherty High School** `May 2021`
 
-### Research interests
+- 4.23 GPA
+- Two academic letters
+- 96th percentile, rank 13/450+ in class
 
-Cooling, power series, optics, alchemy, planetary motions, apples.
+## Experience & Accomplishments
 
+**Drop-in Lab Coordinator** `Apr 2025 - Current`
 
-## Education
+*Brigham Young University—Idaho* | *Rexburg, ID*
 
-`1654-1660`
-__The King's School, Grantham.__
+- Organized and managed operations in a computer science tutoring lab.
+- Tutored one-on-one for more than 15 computer science courses offered by the university.
 
-`June 1661 - now`
-__Trinity College, Cambridge__
+**Level 5 Associate** `Nov 2020 - Jan 2025`
 
-- Sizar
+*In-N-Out Burger* | *Colorado Springs, CO*  
 
-`1667 - death`
-__Trinity College, Cambridge__
+- Provided high-quality customer service in a fast-paced environment, processing an average of 200+ orders per shift. 
+- Trained and mentored new hires to improve team efficiency. 
+- Maintained accuracy and speed in a high-volume setting, ensuring quality and customer satisfaction. 
 
-- Fellow
+---
 
-
-
-## Awards
-
-`2012`
-President, *Royal Society*, London, UK
-
-Associate, *French Academy of Science*, Paris, France
-
-
-
-## Publications
-
-<!-- A list is also available [online](http://scholar.google.co.uk/citations?user=LTOTl0YAAAAJ) -->
-
-### Journals
-
-`1669`
-Newton Sir I, De analysi per æquationes numero terminorum infinitas. 
-
-`1669`
-Lectiones opticæ.
-
-etc. etc. etc.
-
-### Patents
-
-`2012`
-Infinitesimal calculus for solutions to physics problems, [SMBC](http://www.techdirt.com/articles/20121011/09312820678/if-patents-had-been-around-time-newton.shtml) patent 001
-
-
-## Occupation
-
-`1600`
-__Royal Mint__, London
-
-- Warden
-- Minted coins
-
-`1600`
-__Lucasian professor of Mathematics__, Cambridge University
-
-
+- Teaching assistant for cybersecurity, cryptography, Linux, and discrete math 
+- 1-on-1 math tutor from basic algebra to calculus, in general and specific fields 
+- Missionary for the Church of Jesus Christ of Latter-day Saints 
+- Eagle Scout in the Boy Scouts of America
 
 <!-- ### Footer
 
