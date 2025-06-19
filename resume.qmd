@@ -14,7 +14,7 @@ Detail-oriented Computer Science student (3.99 GPA) at Brigham Young University�
 
 Throughout my time as a computer science enthusiast, I have worked on quite a few projects. Many of them are uploaded on [my GitHub](https://github.com/tman7077) account! Most of my work has been in object-oriented and functional contexts, and I’ve worked in many languages: Python, C# and .NET 7-9, Elixir & Erlang, HTML & CSS, JavaScript, and SQL (MySQL). I’m also currently working on [a simple murder mystery application](https://github.com/tman7077/spaceteam-murder-mystery) in C# and WPF (*soon™*).
 
-## Experience & Accomplishments
+## Education
 
 **Brigham Young University—Idaho** *(Current)*
 
@@ -27,7 +27,7 @@ Throughout my time as a computer science enthusiast, I have worked on quite a fe
 - Two academic letters
 - 96th percentile, rank 13/450+ in class
 
-## Education
+## Experience & Accomplishments
 
 **Drop-in Lab Coordinator** `Apr 2025 - Current`
 
