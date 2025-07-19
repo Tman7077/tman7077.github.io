@@ -1,7 +1,7 @@
 ---
-title: "Client Report - [Insert Project Title]"
+title: "Coding Challenge?"
 subtitle: "Course DS 250"
-author: "[STUDENT NAME]"
+author: "Tyler Bartle"
 format:
   html:
     self-contained: true
@@ -25,4 +25,121 @@ execute:
     
 ---
 
-### Paste in a template
+```{python}
+from lets_plot import *
+from lets_plot.mapping import as_discrete
+import numpy as np
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.metrics import accuracy_score
+
+LetsPlot.setup_html(isolated_frame=True)
+```
+
+## QUESTION|TASK 1: NAMES
+
+```{python}
+names_df = pd.read_csv("https://raw.githubusercontent.com/byuidatascience/data4names/master/data-raw/names_year/names_year.csv")
+peter_df = names_df[(names_df['name'] == 'Peter')]
+long_df = peter_df.melt(
+    id_vars=['year', 'name'],
+    var_name='state',
+    value_name='Count'
+)
+long_df = long_df[long_df['state'].isin(['UT', 'OR'])]
+vlines_df = pd.DataFrame({
+    'year': [1933, 1969, 2002],
+    'label': ['1936', '1972', '2005'],
+    'y': [50, 85, 75]
+})
+
+x_breaks = list(range(1910, 2021, 5))
+x_labels = [str(x) if x % 10 == 0 else '' for x in x_breaks]
+
+p = (ggplot(long_df, aes(x='year', y='Count', color=as_discrete('state')))
+ + geom_line(size=1.2)
+ + geom_vline(xintercept=1936, color='black')
+ + geom_vline(xintercept=1972, color='black')
+ + geom_vline(xintercept=2005, color='black')
+ + geom_text(data=vlines_df, mapping=aes(x='year', y='y', label='label'), vjust=-1, color='black')
+ + ggtitle("The history of Peter for Utah (red) and Oregon (orange)")
+ + xlab("Year name given")
+ + ylab("Count of Peter")
+ + scale_x_continuous(breaks=x_breaks, labels=x_labels)
+ + scale_color_manual(values={'UT': 'red', 'OR': 'orange'}, name=None)
+ + theme(axis_text_x=element_text(angle=0, hjust=1))
+ + ggsize(1200, 500)
+)
+```
+
+```{python}
+p.show()
+```
+
+
+## QUESTION|TASK 2: MEAN
+
+
+```{python}
+problem = pd.Series([np.nan, 15, 22, 45, 31, np.nan, 85, 38, 129, 8000, 21, 2])
+
+median = problem.median()
+filled = problem.fillna(median)
+mean = round(filled.mean(), 2)
+
+print(mean)
+```
+
+
+## QUESTION|TASK 3: COUNTRIES
+
+```{python}
+json = [
+    { "country":"Afghanistan", "year":1999, "cases":745,    "population":19987071   },
+    { "country":"Afghanistan", "year":2000, "cases":2666,   "population":20595360   },
+    { "country":"Brazil",      "year":1999, "cases":37737,  "population":172006362  },
+    { "country":"Brazil",      "year":2000, "cases":80488,  "population":174504898  },
+    { "country":"China",       "year":1999, "cases":212258, "population":1272915272 },
+    { "country":"China",       "year":2000, "cases":213766, "population":1280428583 }
+]
+country_df = pd.DataFrame(json)
+
+# Pivot to get years as columns
+pivot_df = country_df.pivot(index='country', columns='year', values='cases').reset_index()
+pivot_df.columns.name = None  # Remove MultiIndex on columns
+
+# Rename columns for clarity
+pivot_df.columns = ['country', 'cases_1999', 'cases_2000']
+pivot_df
+```
+
+
+
+## QUESTION|TASK 4: DWELLINGS
+
+```{python}
+dwellings_df = pd.read_csv("https://raw.githubusercontent.com/byuidatascience/data4dwellings/master/data-raw/dwellings_ml/dwellings_ml.csv")
+X = dwellings_df.drop(columns=['parcel', 'basement'])
+y = dwellings_df['basement']
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=2020)
+model = GradientBoostingClassifier()
+model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
+acc = accuracy_score(y_test, y_pred)
+print(f"Accuracy: {acc:.2%}")
+feature_importance = pd.DataFrame({
+    'Feature': X.columns,
+    'Importance': model.feature_importances_
+})
+
+top10 = feature_importance.sort_values(by='Importance', ascending=False).head(10)
+
+p = (ggplot(top10, aes(x='reorder(Feature, Importance)', y='Importance'))
+   + geom_bar(stat='identity')
+   + coord_flip()
+   + ggtitle("Top 10 Feature Importances")
+   + xlab("Feature")
+   + ylab("Importance")
+)
+```
