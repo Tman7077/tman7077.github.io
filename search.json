@@ -452,53 +452,9 @@
   {
     "objectID": "Competition/project1.html",
     "href": "Competition/project1.html",
-    "title": "Coding Challenge?",
+    "title": "Removed",
     "section": "",
-    "text": "Show the code\nfrom lets_plot import *\nfrom lets_plot.mapping import as_discrete\nimport numpy as np\nimport pandas as pd\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.ensemble import GradientBoostingClassifier\nfrom sklearn.metrics import accuracy_score\n\nLetsPlot.setup_html(isolated_frame=True)",
-    "crumbs": [
-      "Competition",
-      "Project 1"
-    ]
-  },
-  {
-    "objectID": "Competition/project1.html#questiontask-1-names",
-    "href": "Competition/project1.html#questiontask-1-names",
-    "title": "Coding Challenge?",
-    "section": "QUESTION|TASK 1: NAMES",
-    "text": "QUESTION|TASK 1: NAMES\n\n\nShow the code\nnames_df = pd.read_csv(\"https://raw.githubusercontent.com/byuidatascience/data4names/master/data-raw/names_year/names_year.csv\")\npeter_df = names_df[(names_df['name'] == 'Peter')]\nlong_df = peter_df.melt(\n    id_vars=['year', 'name'],\n    var_name='state',\n    value_name='Count'\n)\nlong_df = long_df[long_df['state'].isin(['UT', 'OR'])]\nvlines_df = pd.DataFrame({\n    'year': [1933, 1969, 2002],\n    'label': ['1936', '1972', '2005'],\n    'y': [50, 85, 75]\n})\n\nx_breaks = list(range(1910, 2021, 5))\nx_labels = [str(x) if x % 10 == 0 else '' for x in x_breaks]\n\np = (ggplot(long_df, aes(x='year', y='Count', color=as_discrete('state')))\n + geom_line(size=1.2)\n + geom_vline(xintercept=1936, color='black')\n + geom_vline(xintercept=1972, color='black')\n + geom_vline(xintercept=2005, color='black')\n + geom_text(data=vlines_df, mapping=aes(x='year', y='y', label='label'), vjust=-1, color='black')\n + ggtitle(\"The history of Peter for Utah (red) and Oregon (orange)\")\n + xlab(\"Year name given\")\n + ylab(\"Count of Peter\")\n + scale_x_continuous(breaks=x_breaks, labels=x_labels)\n + scale_color_manual(values={'UT': 'red', 'OR': 'orange'}, name=None)\n + theme(axis_text_x=element_text(angle=0, hjust=1))\n + ggsize(1200, 500)\n)\n\n\n\n\nShow the code\np.show()",
-    "crumbs": [
-      "Competition",
-      "Project 1"
-    ]
-  },
-  {
-    "objectID": "Competition/project1.html#questiontask-2-mean",
-    "href": "Competition/project1.html#questiontask-2-mean",
-    "title": "Coding Challenge?",
-    "section": "QUESTION|TASK 2: MEAN",
-    "text": "QUESTION|TASK 2: MEAN\n\n\nShow the code\nproblem = pd.Series([np.nan, 15, 22, 45, 31, np.nan, 85, 38, 129, 8000, 21, 2])\n\nmedian = problem.median()\nfilled = problem.fillna(median)\nmean = round(filled.mean(), 2)\n\nprint(mean)\n\n\n704.75",
-    "crumbs": [
-      "Competition",
-      "Project 1"
-    ]
-  },
-  {
-    "objectID": "Competition/project1.html#questiontask-3-countries",
-    "href": "Competition/project1.html#questiontask-3-countries",
-    "title": "Coding Challenge?",
-    "section": "QUESTION|TASK 3: COUNTRIES",
-    "text": "QUESTION|TASK 3: COUNTRIES\n\n\nShow the code\njson = [\n    { \"country\":\"Afghanistan\", \"year\":1999, \"cases\":745,    \"population\":19987071   },\n    { \"country\":\"Afghanistan\", \"year\":2000, \"cases\":2666,   \"population\":20595360   },\n    { \"country\":\"Brazil\",      \"year\":1999, \"cases\":37737,  \"population\":172006362  },\n    { \"country\":\"Brazil\",      \"year\":2000, \"cases\":80488,  \"population\":174504898  },\n    { \"country\":\"China\",       \"year\":1999, \"cases\":212258, \"population\":1272915272 },\n    { \"country\":\"China\",       \"year\":2000, \"cases\":213766, \"population\":1280428583 }\n]\ncountry_df = pd.DataFrame(json)\n\n# Pivot to get years as columns\npivot_df = country_df.pivot(index='country', columns='year', values='cases').reset_index()\npivot_df.columns.name = None  # Remove MultiIndex on columns\n\n# Rename columns for clarity\npivot_df.columns = ['country', 'cases_1999', 'cases_2000']\npivot_df\n\n\n\n\n\n\n\n\n\ncountry\ncases_1999\ncases_2000\n\n\n\n\n0\nAfghanistan\n745\n2666\n\n\n1\nBrazil\n37737\n80488\n\n\n2\nChina\n212258\n213766",
-    "crumbs": [
-      "Competition",
-      "Project 1"
-    ]
-  },
-  {
-    "objectID": "Competition/project1.html#questiontask-4-dwellings",
-    "href": "Competition/project1.html#questiontask-4-dwellings",
-    "title": "Coding Challenge?",
-    "section": "QUESTION|TASK 4: DWELLINGS",
-    "text": "QUESTION|TASK 4: DWELLINGS\n\n\nShow the code\ndwellings_df = pd.read_csv(\"https://raw.githubusercontent.com/byuidatascience/data4dwellings/master/data-raw/dwellings_ml/dwellings_ml.csv\")\nX = dwellings_df.drop(columns=['parcel', 'basement'])\ny = dwellings_df['basement']\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=2020)\nmodel = GradientBoostingClassifier()\nmodel.fit(X_train, y_train)\ny_pred = model.predict(X_test)\nacc = accuracy_score(y_test, y_pred)\nprint(f\"Accuracy: {acc:.2%}\")\nfeature_importance = pd.DataFrame({\n    'Feature': X.columns,\n    'Importance': model.feature_importances_\n})\n\ntop10 = feature_importance.sort_values(by='Importance', ascending=False).head(10)\n\np = (ggplot(top10, aes(x='reorder(Feature, Importance)', y='Importance'))\n   + geom_bar(stat='identity')\n   + coord_flip()\n   + ggtitle(\"Top 10 Feature Importances\")\n   + xlab(\"Feature\")\n   + ylab(\"Importance\")\n)\n\n\nAccuracy: 0.17%",
+    "text": "Back to top",
     "crumbs": [
       "Competition",
       "Project 1"
